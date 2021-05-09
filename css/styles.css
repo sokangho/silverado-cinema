@@ -1,0 +1,712 @@
+/* Global */
+/* All CSS3 grid original code sourced and adapted from CSS-Tricks
+https://css-tricks.com/snippets/css/complete-guide-grid/ */
+
+@font-face {
+  font-family: Museo;
+  src: url('./fonts/Museo500-Regular.otf');
+}
+
+/* Font sourced from http://www.fontspace.com/category/title?p=3 */
+@font-face {
+  font-family: Ganymedian;
+  src: url('./fonts/Ganymedian.ttf');
+}
+
+body {
+  /* Background image source:
+	Thor - http://thesmashable.com/wp-content/uploads/2013/05/thor2_wallpapers_desktop_backgrounds_thor2_hd_free_wallpapers_thor2_desktop_wallpapers_thor2_wallpapers_backgrounds1.jpg
+	Loki - http://wallpaperus.org/wallpapers/03/106/loki-tom1-0000x5000-wallpaper-1709245.jpg
+	background - http://atomhawk.com/images/2743_1351_900_auto.jpg */
+  background-image: url('./img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+  font-family: Museo;
+  color: #c0c0c0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  /* Background gradient original code sourced and adapted from w3schools for educational purposes
+	https://www.w3schools.com/css/css3_gradients.asp */
+  background: linear-gradient(to bottom, black, #16304b);
+}
+
+/* vertical align (align image with text) source code http://maxdesign.com.au/articles/vertical-align/ */
+#brand img {
+  width: 50px;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: bold;
+  font-family: Ganymedian;
+  font-size: 250%;
+  color: #c0c0c0;
+  padding: 10px 0 10px 20px;
+  border-bottom: 2px solid #c0c0c0;
+}
+
+/* Navigation Bar */
+header nav ul li {
+  padding: 15px 0px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #c0c0c0;
+  padding: 15px 20px 16px 20px;
+}
+
+header a:hover,
+.current {
+  background-color: #8b0000;
+}
+
+/* Slideshow */
+/* Slideshow CSS original code sourced and adapted from
+w3schools https://www.w3schools.com/howto/howto_js_slideshow.asp
+and RK Tutorial https://www.youtube.com/watch?v=7QyfBp9uHTs */
+#slideshow {
+  z-index: -1;
+  max-width: 1000px;
+  height: 430px;
+  position: relative;
+}
+
+#slideshow > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#dot-container {
+  text-align: center;
+  margin-top: -50px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: rgb(192, 0, 0);
+}
+
+/* Banner */
+#banner {
+  background-color: #8b0000;
+}
+
+#banner h3 {
+  font-size: 140%;
+  text-align: center;
+  padding: 25px;
+  color: #c0c0c0;
+}
+
+#inner-banner {
+  margin-top: -25px;
+  background: #202226;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'top top'
+    'left right';
+}
+
+#inner-banner h3 {
+  margin: 0;
+  text-align: center;
+  padding-bottom: 10px;
+  grid-area: top;
+  font-size: 110%;
+}
+
+#inner-banner h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 100%;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
+#inner-banner h5 {
+  line-height: 20px;
+  background: none;
+  margin: 0;
+  font-size: 90%;
+}
+
+#left-banner {
+  background-color: #16304b;
+  grid-area: left;
+}
+
+#right-banner {
+  background-color: #2e3847;
+  grid-area: right;
+}
+
+#right-banner h5 {
+  line-height: 28px;
+  text-align: center;
+}
+
+/* Now showing movies */
+.card {
+  background: #8b0000;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  font-size: 110%;
+  padding: 10px 17px;
+  color: #c0c0c0;
+  border-radius: 10px 0 10px;
+  border: 1px solid black;
+}
+
+.card:hover {
+  color: white;
+}
+
+.movies-container {
+  background-color: #202226;
+}
+
+/* box-shadow code is retrieved from w3schools https://www.w3schools.com/css/css3_images.asp */
+.movies-container img {
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid black;
+}
+
+.movies-container img:hover {
+  border: 2px solid red;
+}
+
+#movies-container1 {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0 10px 0;
+}
+
+#movies-container1 .all-movies {
+  margin: 20px 10px 15px 15px;
+}
+
+#movies-container1 img {
+  width: 235px;
+}
+
+/* The following CSS grid source code retrieved from mmtuts https://www.youtube.com/watch?v=HgwCeNVPlo0&t=6s */
+.movies-container2 {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+    'title title'
+    'movie side';
+}
+
+.title {
+  padding: 15px;
+  font-weight: bolder;
+  border: 1px solid black;
+  background-color: #8b0000;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 130%;
+  grid-area: title;
+}
+
+.image {
+  justify-self: center;
+}
+
+.image img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 220px;
+  margin-left: 2%;
+  grid-area: movie;
+}
+
+.movie-side {
+  grid-area: side;
+  margin-left: 2%;
+  width: 95%;
+}
+
+.movie-side .sessions {
+  background-color: #c0c0c0;
+  display: flex;
+  padding: 3px;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+.movie-side p {
+  display: inline;
+  font-size: 85%;
+}
+
+/* Booking Form */
+/* Hide movie name text input form */
+#movie-name,
+#sessionTime {
+  display: none;
+}
+
+/* CSS code for styling booking form
+Original code sourced and adapted for educational purposes from Traversy Media
+https://www.youtube.com/watch?v=6ophW7Ask_0&t=737s&list=PLh5GpSavOzu4SUfYHzRNK_GyuMX-yT3tz&index=1 */
+#form {
+  z-index: 1;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.form-container {
+  background: #2e3036;
+  color: black;
+  width: 700px;
+  margin: 0 auto;
+  border: 3px solid darkred;
+  display: grid;
+  grid-template-columns: 1.2fr 3fr;
+  grid-template-areas:
+    'closeBtn closeBtn'
+    'legend legend'
+    'movieTitle movieTitle'
+    'sessions sessions'
+    'img form'
+    'book book';
+
+  /* Vertically center-align module
+	Original code sourced and adapted for educational purposes from zerosixthree
+	http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-container img {
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+  grid-area: img;
+  width: 100%;
+  height: 100%;
+}
+
+#inner-form2 {
+  background: #2e3036;
+  grid-area: form;
+  color: #c0c0c0;
+  line-height: 20px;
+}
+
+#closeBtn {
+  grid-area: closeBtn;
+  float: right;
+  margin-top: -5px;
+}
+
+#closeBtn:hover {
+  color: #8b0000;
+}
+
+#movieTitle {
+  grid-area: movieTitle;
+  font-size: 110%;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 7px;
+  font-weight: bold;
+  background-color: #8b0000;
+  color: #c0c0c0;
+  /* Original code sourced and adapted from Julian Cardenas
+	https://stackoverflow.com/questions/10813528/is-it-possible-to-center-text-in-select-box */
+  text-align-last: center;
+}
+
+#inner-form2 div {
+  margin-top: 3px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+#inner-form2 div label {
+  font-size: 90%;
+}
+
+.seat_type {
+  text-align: left;
+  margin-left: 25px;
+}
+
+.form-container .sessions {
+  background-color: black;
+  display: flex;
+  grid-area: sessions;
+  padding: 7px;
+}
+
+.seats {
+  grid-area: seats;
+  margin: 0 5px 0px 5px;
+}
+
+.legend {
+  grid-area: legend;
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bolder;
+  font-size: 120%;
+  background-color: #c0c0c0;
+  padding: 10px;
+  /* box-shadow code is retrieved from w3schools https://www.w3schools.com/css/css3_images.asp */
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+h5 {
+  font-size: 110%;
+  background-color: #16304b;
+  padding: 3px 10px;
+  margin: 0;
+}
+
+#total {
+  background-color: black;
+  text-align: right;
+}
+
+h6 {
+  font-size: 80%;
+  margin: auto;
+  padding: 6px;
+  color: black;
+}
+
+.box {
+  border-radius: 5px;
+  border: 1px solid black;
+  /* box-shadow code is retrieved from w3schools https://www.w3schools.com/css/css3_images.asp */
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sessions label,
+.innerform option {
+  font-size: 80%;
+}
+
+select {
+  font-family: Museo;
+  width: 60px;
+  border-radius: 5px;
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+
+.subtotal {
+  margin: 0;
+}
+
+/* Hide radio button original code sourced and adapted for educational purposes from Vecihi Baltacı
+https://stackoverflow.com/questions/28907197/is-there-a-way-to-hide-radio-buttons-using-css */
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio'] + label {
+  margin: auto;
+  color: #c0c0c0;
+  padding: 6px;
+}
+
+/* Style checked button + label original code sourced and adapted from Sara Cope
+https://css-tricks.com/almanac/selectors/c/checked/ */
+input[type='radio']:checked + label,
+input[type='radio']:hover + label {
+  background: #8b0000;
+  border-radius: 20px;
+  font-style: italic;
+  padding: 6px;
+}
+
+.button {
+  font-weight: bold;
+  cursor: pointer;
+  font-family: Museo;
+  background-color: #8b0000;
+  border-radius: 5px;
+  padding: 5px 8px;
+  border: 1px solid black;
+  color: #c0c0c0;
+  text-transform: uppercase;
+  font-size: 110%;
+  /* box-shadow code is retrieved from w3schools https://www.w3schools.com/css/css3_images.asp */
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button:hover,
+#movieTitle:hover {
+  color: white;
+}
+
+#book {
+  cursor: pointer;
+  grid-area: book;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  /* Background gradient original code sourced and adapted from w3schools for educational purposes
+	https://www.w3schools.com/css/css3_gradients.asp */
+  background: linear-gradient(to top, black 20%, #16304b);
+}
+
+footer h4 {
+  font-size: 80%;
+  text-decoration: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: #c0c0c0;
+}
+
+.footer-container {
+  display: flex;
+  text-align: center;
+}
+
+.footer-container2 {
+  border-top: 1px solid #c0c0c0;
+  background-color: #202226;
+}
+
+.footer-container2 .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 'copyright terms';
+}
+
+.footer1 {
+  flex: 1;
+}
+
+.footer2 {
+  flex: 1;
+}
+
+.footer3 {
+  flex: 2;
+}
+
+.footer4 {
+  flex: 1;
+}
+
+.footer5 {
+  grid-area: copyright;
+}
+
+.footer6 {
+  /* flexbox space-evenly source code retrieved from
+	https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+  justify-content: space-evenly;
+  display: flex;
+  grid-area: terms;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+}
+
+.social i {
+  color: #c0c0c0;
+  font-size: 180%;
+  margin: -8px 3px 0 3px;
+  padding-bottom: 10px;
+}
+
+footer a:hover,
+.social i:hover {
+  color: white;
+}
+
+/* Media queries code sourced from CSS-Tricks
+https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+@media screen and (max-width: 1000px) {
+  .footer-container2 .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'terms'
+      'copyright';
+  }
+
+  .footer5 {
+    margin: 0 auto;
+  }
+
+  .button {
+    margin-bottom: 20px;
+  }
+
+  #book {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  select {
+    font-size: 95%;
+  }
+
+  .movies-container2 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'title'
+      'movie'
+      'side';
+  }
+
+  .form-container {
+    width: 80%;
+    grid-template-columns: 1.5fr 3fr;
+  }
+
+  #inner-form2 div {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .seat_type {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body,
+  select {
+    font-size: 90%;
+  }
+
+  #inner-banner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'top'
+      'left'
+      'right';
+  }
+
+  #slideshow {
+    height: 300px;
+  }
+
+  #form_image {
+    display: none;
+  }
+
+  .form-container {
+    width: 90%;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'legend'
+      'movieTitle'
+      'sessions'
+      'form'
+      'book';
+  }
+
+  .movie-side .sessions {
+    display: block;
+    width: 120px;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'link link2'
+      'deal social';
+  }
+
+  .footer1 {
+    grid-area: link;
+  }
+
+  .footer2 {
+    grid-area: link2;
+  }
+
+  .footer3 {
+    grid-area: deal;
+  }
+
+  .footer4 {
+    grid-area: social;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  body,
+  select {
+    font-size: 85%;
+  }
+
+  #brand img {
+    width: 40px;
+  }
+
+  header h1 {
+    font-size: 200%;
+  }
+
+  #inner-form2 .price {
+    margin-left: 0;
+  }
+
+  .list {
+    margin-left: 10px;
+    width: 40px;
+  }
+}
